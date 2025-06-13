@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555555;
+        }
+
+        form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h3 {
+            margin-top: 20px;
+            text-align: center;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>House Price Prediction</h2>
+        <form action="/predict" method="post">
+            <label>CRIM: <input type="text" name="CRIM" required></label>
+            <label>ZN: <input type="text" name="ZN" required></label>
+            <label>INDUS: <input type="text" name="INDUS" required></label>
+            <label>CHAS (0 or 1): <input type="text" name="CHAS" required></label>
+            <label>NOX: <input type="text" name="NOX" required></label>
+            <label>RM: <input type="text" name="RM" required></label>
+            <label>AGE: <input type="text" name="AGE" required></label>
+            <label>DIS: <input type="text" name="DIS" required></label>
+            <label>RAD: <input type="text" name="RAD" required></label>
+            <label>TAX: <input type="text" name="TAX" required></label>
+            <label>PTRATIO: <input type="text" name="PTRATIO" required></label>
+            <label>BLACK: <input type="text" name="BLACK" required></label>
+            <label>LSTAT: <input type="text" name="LSTAT" required></label>
+            <input type="submit" value="Predict Price">
+        </form>
+
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
